@@ -70,31 +70,31 @@ def coti():
         # Create the label and entry widgets for the contribution details
         
 
-        name_label = ttk.Label(update_window, text="Name:")
+        name_label = ttk.Label(update_window, text="Nom et Prenom:")
         name_label.grid(row=0, column=0, padx=5, pady=5, sticky="w")
         name_entry = ttk.Entry(update_window, width=30)
         name_entry.grid(row=0, column=1, padx=5, pady=5)
         name_entry.insert(0, contribution[1])
 
-        apartment_label = ttk.Label(update_window, text="Apartment Number:")
+        apartment_label = ttk.Label(update_window, text="Num Appartement:")
         apartment_label.grid(row=1, column=0, padx=5, pady=5, sticky="w")
         apartment_entry = ttk.Entry(update_window, width=30)
         apartment_entry.grid(row=1, column=1, padx=5, pady=5)
         apartment_entry.insert(0, contribution[2])
 
-        month_label = ttk.Label(update_window, text="Month:")
+        month_label = ttk.Label(update_window, text="Mois:")
         month_label.grid(row=2, column=0, padx=5, pady=5, sticky="w")
         month_entry = ttk.Entry(update_window, width=30)
         month_entry.grid(row=2, column=1, padx=5, pady=5)
         month_entry.insert(0, contribution[3])
 
-        contribution_label = ttk.Label(update_window, text="Contribution Amount:")
+        contribution_label = ttk.Label(update_window, text="Somme cotisation:")
         contribution_label.grid(row=3, column=0, padx=5, pady=5, sticky="w")
         contribution_entry = ttk.Entry(update_window, width=30)
         contribution_entry.grid(row=3, column=1, padx=5, pady=5)
         contribution_entry.insert(0, contribution[4])
 
-        year_label = ttk.Label(update_window, text="Year:")
+        year_label = ttk.Label(update_window, text="L'année:")
         year_label.grid(row=4, column=0, padx=5, pady=5, sticky="w")
         year_combo = ttk.Combobox(update_window, values=[str(year) for year in range(2018, 2041)], width=30)
         year_combo.grid(row=4, column=1, padx=5, pady=5)
@@ -102,7 +102,7 @@ def coti():
 
 
         # Create the "Update" button
-        update_button = ttk.Button(update_window, text="Update", command=lambda: update_contribution_db(contribution_id, name_entry.get(), apartment_entry.get(), month_entry.get(), contribution_entry.get(), year_combo.get()))
+        update_button = ttk.Button(update_window, text="Modifier", command=lambda: update_contribution_db(contribution_id, name_entry.get(), apartment_entry.get(), month_entry.get(), contribution_entry.get(), year_combo.get()))
         update_button.grid(row=5, column=0, columnspan=2, padx=5, pady=5)
         
 
@@ -174,22 +174,22 @@ def coti():
         result = cursor.fetchone()
 
         # Display the sum of contributions for the given year in a message box
-        messagebox.showinfo("Total Contributions", f"The total contributions amount for {year} is {result[0]}")
+        messagebox.showinfo("Total Contributions", f"Le totale des cotisations pour {year} est {result[0]}")
 
     def total_contributions():
         # Get the year from user using a simple dialog box
-        year = simpledialog.askinteger("Enter Year", "Enter the year you want to calculate the total for:")
+        year = simpledialog.askinteger("Enter Year", "Entrer l'année:")
 
         # Create a window to show the result
         result_window = tk.Toplevel()
         result_window.title("Total Contributions")
 
         # Create a label to display the result
-        result_label = tk.Label(result_window, text=f"The total contributions amount for {year} is:")
+        result_label = tk.Label(result_window, text=f"Le totale des cotisations pour {year} est:")
         result_label.pack()
 
         # Create a button to calculate the total contributions
-        calculate_button = tk.Button(result_window, text="Calculate", command=lambda: calculate_total(year))
+        calculate_button = tk.Button(result_window, text="Calculer", command=lambda: calculate_total(year))
         calculate_button.pack()
 
         # Show the result window
@@ -203,27 +203,27 @@ def coti():
     roote.title("Contribution Tracker")
 
     # Create the label and entry widgets for the contribution details
-    name_label = ttk.Label(roote, text="Name:")
+    name_label = ttk.Label(roote, text="Nom et Prenom:")
     name_label.grid(row=0, column=0, padx=5, pady=5, sticky="w")
     name_entry = ttk.Entry(roote, width=30)
     name_entry.grid(row=0, column=1, padx=5, pady=5)
 
-    apartment_label = ttk.Label(roote, text="Apartment Number:")
+    apartment_label = ttk.Label(roote, text="Num Appartement:")
     apartment_label.grid(row=1, column=0, padx=5, pady=5, sticky="w")
     apartment_entry = ttk.Entry(roote, width=30)
     apartment_entry.grid(row=1, column=1, padx=5, pady=5)
 
-    month_label = ttk.Label(roote, text="Month:")
+    month_label = ttk.Label(roote, text="Mois:")
     month_label.grid(row=2, column=0, padx=5, pady=5, sticky="w")
     month_entry = ttk.Combobox(roote, width=27, values=["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"])
     month_entry.grid(row=2, column=1, padx=5, pady=5)
 
-    contribution_label = ttk.Label(roote, text="Contribution Amount:")
+    contribution_label = ttk.Label(roote, text="Somme Cotisation:")
     contribution_label.grid(row=3, column=0, padx=5, pady=5, sticky="w")
     contribution_entry = ttk.Entry(roote, width=30)
     contribution_entry.grid(row=3, column=1, padx=5, pady=5)
 
-    year_label = ttk.Label(roote, text="Year:")
+    year_label = ttk.Label(roote, text="Année:")
     year_label.grid(row=4, column=0, padx=5, pady=5, sticky="w")
 
     year_combo = ttk.Combobox(roote, values=[str(year) for year in range(2018, 2041)], width=27)
@@ -232,28 +232,28 @@ def coti():
 
     # Create the treeview to display the contributions
     contributions_treeview = ttk.Treeview(roote, columns=("name", "apartment_number", "month", "contribution_amount", "year"), show="headings")
-    contributions_treeview.heading("name", text="Name")
-    contributions_treeview.heading("apartment_number", text="Apartment Number")
-    contributions_treeview.heading("month", text="Month")
-    contributions_treeview.heading("contribution_amount", text="Contribution Amount")
-    contributions_treeview.heading("year", text="Year")
+    contributions_treeview.heading("name", text="Nom et Prenom")
+    contributions_treeview.heading("apartment_number", text="Num Appartement")
+    contributions_treeview.heading("month", text="Mois")
+    contributions_treeview.heading("contribution_amount", text="Somme cotisation")
+    contributions_treeview.heading("year", text="Année")
     contributions_treeview.grid(row=5, column=0, columnspan=2, padx=7, pady=5)
 
     # Create the buttons to add, update, and delete contributions
-    add_button = ttk.Button(roote, text="Add Contribution", command=add_contribution)
+    add_button = ttk.Button(roote, text="Ajouter une cotisation", command=add_contribution)
     add_button.grid(row=6, column=0, padx=5, pady=5)
 
-    update_button = ttk.Button(roote, text="Update Contribution", command=update_contribution)
+    update_button = ttk.Button(roote, text="Modifier une cotisation", command=update_contribution)
     update_button.grid(row=6, column=1, padx=5, pady=5)
 
-    delete_button = ttk.Button(roote, text="Delete Contribution", command=delete_contribution)
+    delete_button = ttk.Button(roote, text="Supprimer une Cotisation", command=delete_contribution)
     delete_button.grid(row=6, column=2, padx=5, pady=5)
 
 
 
 
     # Create the button for total contributions
-    total_button = ttk.Button(roote, text="Total Contributions", command=total_contributions)
+    total_button = ttk.Button(roote, text="Totale des cotisations", command=total_contributions)
     total_button.grid(row=6, column=3, padx=5, pady=5)
 
 
