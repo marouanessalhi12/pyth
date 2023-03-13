@@ -17,7 +17,7 @@ def cal():
     
     
     
-    year = simpledialog.askstring("Input", "Enter the year:")
+    year = simpledialog.askstring("Input", "Entrer l'année:")
     cursor = mydb.cursor()
 
 
@@ -37,7 +37,7 @@ def cal():
     result = float(contributions_total) - float(charges_total)
 
      # hide the window before showing the message box
-    messagebox.showinfo(title="Result", message=f"The result is {result}")
+    messagebox.showinfo(title="Result", message=f"le résultat est:  {result}")
     
     
     mydb.close()
