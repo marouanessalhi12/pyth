@@ -90,7 +90,7 @@ def charg():
 
 
         # Create the "Update" button
-        update_button = ttk.Button(update_window, text="Update", command=lambda: update_charge_db(charge_id, date_entry.get(), libelle_entry.get(), somme_entry.get()))
+        update_button = ttk.Button(update_window, text="Modifier", command=lambda: update_charge_db(charge_id, date_entry.get(), libelle_entry.get(), somme_entry.get()))
         update_button.grid(row=5, column=0, columnspan=2, padx=5, pady=5)
         
 
@@ -166,7 +166,7 @@ def charg():
 
 
         # Display the sum of charges in a message box
-        messagebox.showinfo("Total charges", f"The total charges amount is {result[0]}")
+        messagebox.showinfo("Totale des charges", f"Le totale des charges est:  {result[0]}")
 
 
     
@@ -210,20 +210,20 @@ def charg():
     charges_treeview.grid(row=3, column=0, columnspan=2, padx=7, pady=5)
 
     # Create the buttons to add, update, and delete charges
-    add_button = ttk.Button(roote, text="Add charge", command=add_charge)
+    add_button = ttk.Button(roote, text="Ajpouter une charge", command=add_charge)
     add_button.grid(row=4, column=0, padx=5, pady=5)
 
-    update_button = ttk.Button(roote, text="Update charge", command=update_charges)
+    update_button = ttk.Button(roote, text="Modifier une charge", command=update_charges)
     update_button.grid(row=4, column=1, padx=5, pady=5)
 
-    delete_button = ttk.Button(roote, text="Delete charge", command=delete_charge)
+    delete_button = ttk.Button(roote, text="Supprimer une charge", command=delete_charge)
     delete_button.grid(row=4, column=2, padx=5, pady=5)
 
 
 
 
     # Create the button for total charges
-    total_button = ttk.Button(roote, text="Total charges", command=total_charges)
+    total_button = ttk.Button(roote, text="Totale des charges", command=total_charges)
     total_button.grid(row=4, column=3, padx=5, pady=5)
 
 
