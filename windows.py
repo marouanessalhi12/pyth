@@ -17,14 +17,14 @@ button_frame = tk.Frame(root)
 button_frame.pack(expand=True)
 
 # Create the first button
-button1 = tk.ttk.Button(button_frame, text="Contributions", command=lambda: [root.withdraw(), coti()])
+button1 = tk.ttk.Button(button_frame, text="Cotisations", command=lambda: [root.withdraw(), coti()])
 button1.pack(side=tk.LEFT, padx=10, pady=10)
 
 # Create the second button
 button2 = tk.ttk.Button(button_frame, text="Charges", command=lambda: [root.withdraw(), charg()])
 button2.pack(side=tk.LEFT, padx=10, pady=10)
 
-button2 = tk.ttk.Button(button_frame, text="Calculate", command=lambda: [root.withdraw(), cal()])
+button2 = tk.ttk.Button(button_frame, text="Calcule", command=lambda: [root.withdraw(), cal()])
 button2.pack(side=tk.LEFT, padx=10, pady=10)
 
 # Center the frame vertically and horizontally
